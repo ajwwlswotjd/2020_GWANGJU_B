@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome/css/font-awesome.css">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/FestivalApp.js"></script>
+    <title>광주 B</title>
+</head>
+
+<body>
+    <!-- 헤더 시작 -->
+
+    <header>
+        <div class="header-util">
+            <div class="container-1140 d-flex justify-content-between align-items-center">
+
+                <div class="util-search color-666">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="검색" class="ml-1 all-unset">
+                </div>
+
+                <div class="util-right d-flex align-items-center">
+                    <select class="all-unset color-666-hover">
+                        <option selected value="ko">한국어</option>
+                        <option value="en">English</option>
+                        <option value="ch">中文(简体)</option>
+                    </select>
+                    <i class="fa fa-chevron-down color-666" style="font-size: 12px;"></i>
+                    <div class="util-nav ml-2">
+                        <a href="#" class="ml-2 color-666-hover">전라북도청</a>
+                        <a href="#" class="ml-2 color-666-hover">로그인</a>
+                        <a href="#" class="ml-2 color-666-hover">회원가입</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container-1140 d-flex justify-content-between align-items-center">
+
+
+                <img src="imgs/logo.jpg" alt="img" title="img" id="logo">
+                <nav class="d-flex align-items-center">
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">HOME</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">전북 대표 축제</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">축제 정보</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">축제 일정</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">환율안내</a>
+                    <a id="hover-to-2depth" class="ml-3 color-666-hover align-items-center d-flex" href="#">
+                        종합지원센터
+                    </a>
+                    <div id="dep2">
+                        <a href="#" class="color-666-hover">공지사항</a>
+                        <a href="#" class="color-666-hover">센터 소개</a>
+                        <a href="#" class="color-666-hover">관광정보 문의</a>
+                        <a href="#" class="color-666-hover">데이터 공개</a>
+                        <a href="#" class="color-666-hover">찾아오시는 길</a>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+    
+    <!-- 헤더 끝 -->
+
+
+    <section class="container padding">
+        <div class="row">
+            <div class="col-6">
+                <h1>JEONBUK <span class="bold">FESTIVAL</span></h1>
+                <p>전북 대표 축제</p>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <a href="?searchType=album" class="btn btn-outline-primary mr-1" data-type="album">앨범형</a>
+                <a href="?searchType=list" class="btn btn-outline-primary" data-type="list">목록형</a>
+            </div>
+        </div>
+
+        <div id="content">
+
+        </div>
+
+        <div id="paging" class="flex-center-row mt-2">
+            <a href="#" class="page_item page_active"><i class="fa fa-angle-left"></i></a>
+            <a href="#" class="page_item page_active">1</a>
+            <a href="#" class="page_item page_active"><i class="fa fa-angle-right"></i></a>
+        </div>
+        
+    </section>
+
+    <footer class="d-flex align-items-center">
+        <div class="container">
+             <div class="row d-flex align-items-center">
+
+                <div class="col-12 tealc mt-3 footer-menu">
+                    <a href="#" class="color-666-hover mr-2">이용안내</a>
+                    <a href="#" class="color-666-hover mr-2">개인정보 처리방침</a>
+                    <a href="#" class="color-666-hover mr-2">저작권 보호정책</a>
+                    <a href="#" class="color-666-hover mr-2">도로명 주소안내</a>
+                    <a href="#" class="color-666-hover mr-2">사이트오류 신고</a>
+                </div>
+
+                <div class="col-4">
+                    <img src="imgs/logo.jpg" alt="logo" title="logo" class="img-parent-cover">
+                </div>
+
+                <div class="col-8 tealc footer-text">
+                    인천시 부평구 무네미로 448번길 77 한국산업인력공단 글로벌숙련기술진흥원<br>
+                    <span class="bold">COPYRIGHTⓒ 2016 HRDKOREA</span>
+                </div>
+
+             </div>
+        </div>
+    </footer>
+</body>
+</html>
