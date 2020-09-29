@@ -41,15 +41,100 @@ class FestivalApp {
     render(){
         let qs = location.search.substring(1, location.search.length);
         let qsObj = {};
-        let arr = qs.split("&").map(x=>{
+        qs.split("&").forEach(x=>{
             let key = x.split("=")[0];
             let value = x.split("=")[1];
+            qsObj[key] = value;
+        });
+        
+        let page = qsObj.page * 1;
+        page = isNaN(page) || !page || page < 1 ? 1 : page;
+        
+        let type = qsObj.searchType;
+        type = ["album","list"].includes(type) ? type : "album";
+        
+        const PAGE_CNT = type == "album" ? 6 : 10;
+        const PAGE_SCNT = 5;
+        let totalPage = Math.ceil(this.datas.length / PAGE_CNT);
+        let currentChapter = Math.ceil(page / PAGE_SCNT);
+
+        let start = (currentChapter - 1) * PAGE_SCNT + 1;
+        if(start < 1) start = 1;
+        let end = currentChapter * PAGE_SCNT;
+        if(end > totalPage) end = totalPage;
+        
+        let prev = start - 1 > 1;
+        let next = end + 1 < totalPage;
+        
+        let si = (page - 1) * PAGE_CNT;
+        let si_e = si + PAGE_CNT;
+        let arr = this.datas.slice( si , si_e );
+        let html = "";
+        for(let i = start; i <= end; i++) html += `<a class="page_item page_${ i === page ? "active" : "normal" }" href="?searchType=${type}&page=${i}">${i}</a>`;
+        html = `<a class="page_item page_${ prev ? "active" : "normal" }" href="?searchType=${type}&page=${ prev ? (currentChapter - 2) * PAGE_CNT + 1 : 1  }"><i class="fa fa-angle-left"></i></a>
+                ${html}
+                <a class="page_item page_${ next ? "active" : "normal" }" href="?searchType=${type}&page=${ next ? currentChapter * PAGE_CNT : totalPage  }"><i class="fa fa-angle-right"></i></a>`;
+        this.$paging.html(html);
+        
+        if(type === "album") this.drawAlbum(arr);
+        else this.drawList(arr);
+        log(arr);
+    }
+
+    async drawAlbum(arr){
+        
+        let last_item = this.datas[this.datas.length-1];
+        let src = last_item.imagePath + "/" + last_item.imgs[0];
+        let img = await this.loadImage(src);
+        src = img.src;
+
+        let html = `<div class="row">
+                        <div class="col-4">
+                            <img src="${src}" alt="img" title="img" id="last_item_img">
+                        </div> 
+                        <div class="col-8">
+                            <div class="row">
+                                <h3 id="last_item_title" class="bold">${last_item.nm}</h3>
+                                <p class="fosi-1 color-333030" id="last_item_info">
+                                    ${last_item.cn}
+                                </p>
+                                <button class="btn btn-primary" id="last_item_modal">자세히 보기</button>
+                            </div>
+                        </div>
+                    </div>`;
+        //
+
+        let inner = arr.map( festival =>{
+            
             
         });
-        log(arr);
+
+        log(inner);
+
+        this.$content.html(html);
         
         
-        
+
+    }
+
+    loadImage(src){
+        return new Promise(( res , rej )=>{
+
+            let img = new Image();
+            img.src = src;
+            img.addEventListener("load",(e)=>{
+                res(img);
+            });
+
+            img.addEventListener("error",(e)=>{
+                img.src = "/imgs/img_no.png";
+            });
+
+        });
+    }
+
+    drawList(arr){
+
     }
 
     addEvent(){
