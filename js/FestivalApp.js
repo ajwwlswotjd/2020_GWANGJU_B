@@ -5,6 +5,7 @@ class FestivalApp {
 
         this.$content = $("#content");
         this.$paging = $("#paging");
+        this.$modal = $('#view-modal');
         this.xml;
         this.datas;
         this.init();
@@ -105,14 +106,25 @@ class FestivalApp {
         //
 
         let inner = arr.map( festival =>{
-            
-            
+            return `
+                <div class="col-4 album_item border" data-sn="${ festival.sn }" data-toggle="modal" data-target="#view-modal">
+                    <img src="${ festival.imagePath  + "/" + festival.imgs[0] }" alt="img" title="img" class="img-parent-width">
+                    <h4 class="mt-2">${ festival.nm }</h4>
+                    <p class="color-333030">${ festival.dt }</p>
+                    <div class="album_img_cnt">${ festival.imgs.length }</div>
+            </div>
+            `;
         });
 
-        log(inner);
+        html += `<div class="row mt-4 mb-4">
+            ${inner.join('')}
+        </div>`;
 
         this.$content.html(html);
-        
+        this.$content.find("img").on("error",(e)=>{
+            $(e.target).attr("src", 'imgs/img_no.png');
+            $(e.target).parent().find(".album_img_cnt").remove();
+        });
         
 
     }
@@ -138,6 +150,17 @@ class FestivalApp {
     }
 
     addEvent(){
+        this.$content.on("click", ".col-4", this.itemClickEventHandler);
+
+        
+
+    }
+
+    itemClickEventHandler = e => {
+
+        let sn = e.currentTarget.dataset.sn;
+        let festival = this.datas.find(x=> x.sn === sn);
+        
 
     }
 }
