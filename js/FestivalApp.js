@@ -5,7 +5,7 @@ class FestivalApp {
 
         this.$content = $("#content");
         this.$paging = $("#paging");
-        this.$modal = $('#view-modal');
+        this.$modal = $('#modal');
         this.xml;
         this.datas;
         this.init();
@@ -107,7 +107,7 @@ class FestivalApp {
 
         let inner = arr.map( festival =>{
             return `
-                <div class="col-4 album_item border" data-sn="${ festival.sn }" data-toggle="modal" data-target="#view-modal">
+                <div class="col-4 album_item border" data-sn="${ festival.sn }">
                     <img src="${ festival.imagePath  + "/" + festival.imgs[0] }" alt="img" title="img" class="img-parent-width">
                     <h4 class="mt-2">${ festival.nm }</h4>
                     <p class="color-333030">${ festival.dt }</p>
@@ -160,7 +160,13 @@ class FestivalApp {
 
         let sn = e.currentTarget.dataset.sn;
         let festival = this.datas.find(x=> x.sn === sn);
-        
+
+        let option = {
+            show : { effect : "fade", duration : 200 },
+            hide : { effect : "fade", duration : 200 }
+        };
+        this.$modal.attr("title", festival.nm);
+        this.$modal.dialog(option);
 
     }
 }
