@@ -20,6 +20,7 @@ body { min-height: 100vh; position: relative; overflow-x: hidden;}
 .weight-600 { font-weight: 600; }
 .weight-700 { font-weight: 700; }
 .hr { width: 30px; height: 3px; background-color: #007bff; animation-name: width_30_100; animation-duration: 2s; animation-iteration-count: infinite; }
+#modal {display: none;} 
 
 .fosi-s1 { font-size: 0.7em !important; }
 .fosi-s2 { font-size: 0.8em !important; }
@@ -79,7 +80,7 @@ header {
     position: sticky;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    z-index: 1030;
+    z-index: 100;
     left: 0;
     top: 0;
 }
@@ -450,8 +451,56 @@ footer {
     border-radius: 100%;
 }
 
+#slider {
+    width: 50%;
+    position: relative;
+    height: 200px;
+    margin: 0 auto;
+}
 
+#slider > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
+.slider_page {
+    display: flex;
+    justify-content: center;
+}
 
+.slide_btn {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 2px;
+    border:none;
+    background-color: #f7f7f7;
+    color: #333030;
+}
+
+.slide_btn:disabled {
+    background-color: #d7d7d7;
+}
+
+.slide_btn.slide_now {
+    background-color: #007bff;    
+    color: #fff;
+}
 
 /* sub.html end */
+
+#exc_section {
+    min-height: 120vh;
+}
+
+.exc_item {
+    padding: 16px 20px;
+}
+
+.exc_item.high {
+    background-color: #f7f7f7;
+}

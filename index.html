@@ -7,10 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="fontawesome/css/font-awesome.css">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="js/common.js"></script>
     <title>광주 A</title>
 </head>
 
 <body>
+
+    <div id="way_modal" title="찾아오시는 길">
+
+    </div>
+
     <!-- 헤더 시작 -->
 
     <header>
@@ -45,20 +54,20 @@
 
                 <img src="imgs/logo.jpg" alt="img" title="img" id="logo">
                 <nav class="d-flex align-items-center">
-                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">HOME</a>
-                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">전북 대표 축제</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="/">HOME</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="/festival.html">전북 대표 축제</a>
                     <a class="ml-3 color-666-hover align-items-center d-flex" href="#">축제 정보</a>
                     <a class="ml-3 color-666-hover align-items-center d-flex" href="#">축제 일정</a>
-                    <a class="ml-3 color-666-hover align-items-center d-flex" href="#">환율안내</a>
+                    <a class="ml-3 color-666-hover align-items-center d-flex" href="/exchangeRate.html">환율안내</a>
                     <a id="hover-to-2depth" class="ml-3 color-666-hover align-items-center d-flex" href="#">
                         종합지원센터
                     </a>
                     <div id="dep2">
-                        <a href="#" class="color-666-hover">공지사항</a>
+                        <a href="/sub.html" class="color-666-hover">공지사항</a>
                         <a href="#" class="color-666-hover">센터 소개</a>
                         <a href="#" class="color-666-hover">관광정보 문의</a>
                         <a href="#" class="color-666-hover">데이터 공개</a>
-                        <a href="#" class="color-666-hover">찾아오시는 길</a>
+                        <a href="#" class="color-666-hover" id="find_way">찾아오시는 길</a>
                     </div>
                 </nav>
 
